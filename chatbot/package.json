@@ -1,0 +1,22 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "second electron",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "chlehdrl"
+  },
+  "keywords": [
+    "chatbot"
+  ],
+  "author": "dong",
+  "license": "ISC"
+}
