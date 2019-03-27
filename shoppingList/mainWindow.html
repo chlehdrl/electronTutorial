@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShoppingList</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div>
+	<h1>ShoppingList</h1>
+	<ul></ul>
+	</div>
+	<script>
+		const electron = require('electron');
+		const {ipcRenderer} = electron;
+		const ul = document.querySelector('ul');
+
+		// Add item
+		ipcRenderer.on('item:add',function(e, item){
+			const li = document.createElement('li');
+			const itemText = document.createTextNode(item);
+			li.appendChild(itemText);
+			ul.appendChild(li);
+		});
+
+		// Clear items
+		ipcRenderer.on('item:clear', function(){
+			ul.innerHTML = '';
+		})
+
+		// Remove item
+		ul.addEventListener('dblclick', removeItem);
+ 
+		function removeItem(e){
+			e.target.remove();
+		}
+	</script>
+</body>
+</html>
